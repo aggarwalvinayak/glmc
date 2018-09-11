@@ -27,6 +27,7 @@
 #define _GLMC_H
 
 #include <stdint.h>
+#include <math.h>
 
 // types
 
@@ -36,18 +37,43 @@ typedef float vec2f[2];
 
 // vec3f
 
-void glmc_vec3f_from_2f(vec3f dest, vec2f src_a, float src_b);
-void glmc_vec3f_from_4f(vec3f dest, vec4f src);
+void glmc_vec3f_from_2f(vec3f dest, vec2f src_a, float src_b){
+	dest[0]=src_a[0];
+	dest[1]=src_a[1];
+	dest[2]=src_b;
+}
+void glmc_vec3f_from_4f(vec3f dest, vec4f src){
+	for(int i=0;i<3;i++){
+			dest[i]=src[i];
+	}
+}
 
-void glmc_vec3f_copy(vec3f dest, vec3f src);
+void glmc_vec3f_copy(vec3f dest, vec3f src){
+	for(int i=0;i<3;i++){
+			dest[i]=src[i];
+	}
+}
 
-float glmc_vec3f_sqrlength(vec3f vec);
-float glmc_vec3f_length(vec3f vec);
+float glmc_vec3f_sqrlength(vec3f vec){
+	int sqrlen=0;
+	for(int i=0;i<3;i++){
+		sqrlen+=vec[i]*vec[i];
+	}
+	return sqrlen
+}
+float glmc_vec3f_length(vec3f vec){
+	int len=0;
+	len=sqrt(glmc_vec3f_sqrlength(vec));
+}
 
 int  glmc_vec3f_is_normalized(vec3f src);
 void glmc_vec3f_normlize(vec3f dest, vec3f src);
 
-void glmc_vec3f_add(vec3f dest, vec3f src_a, vec3f src_b); // dest = src_a + src_b;
+void glmc_vec3f_add(vec3f dest, vec3f src_a, vec3f src_b){
+	for(int i=0;i<3;i++){
+			dest[i]=src_a[i]+src_b[i];
+		}
+} // dest = src_a + src_b;
 void glmc_vec3f_add_dest(vec3f src_dest, vec3f src_b); // dest += src_a;
 
 void glmc_vec3f_sub(vec3f dest, vec3f src_a, vec3f src_b); // dest = src_a - src_b;
