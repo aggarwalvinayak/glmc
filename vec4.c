@@ -34,8 +34,8 @@ void glmc_vec4f_from_2f(vec4f dest, vec2f src_a, float src_b, float src_c){
 }
 void glmc_vec4f_from_3f(vec4f dest, vec3f src_a, float src_b){
 	for(int i=0;i<3;i++)
-		dest[i]=src[i];
-	dest[3]=src_c;
+		dest[i]=src_a[i];
+	dest[3]=src_b;
 }
 
 void glmc_vec4f_copy(vec4f dest, vec4f src){

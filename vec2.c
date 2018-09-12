@@ -106,7 +106,7 @@ void glmc_vec2f_div(vec2f dest, vec2f src_a, vec2f src_b){
 } // dest = src_a / src_b;
 void glmc_vec2f_div_dest(vec2f src_dest, vec2f src_b){
 	for(int i=0;i<2;i++)
-		dest[i]/=src_b[i];
+		src_dest[i]/=src_b[i];
 } // dest /= src_a;
 void glmc_vec2f_div_s(vec2f dest, vec2f src_a, float src_b){
 	for(int i=0;i<2;i++)
