@@ -65,8 +65,16 @@ inline void glmc_vec3f_normlize(vec3f dest, vec3f src){
 	float len;
 	len=glmc_vec3f_length(src);
 	for(int i=0;i<3;i++)
-		dest[i]=dest[i]/len;
+		dest[i]=src[i]/len;
 }
+inline void glmc_vec3f_normlize_dest(vec3f src){
+	float len;
+	vec3f dest;
+	len=glmc_vec3f_length(src);
+	for(int i=0;i<3;i++)
+		src[i]=src[i]/len;
+}
+
 
 inline void glmc_vec3f_add(vec3f dest, vec3f src_a, vec3f src_b){
 	for(int i=0;i<3;i++)

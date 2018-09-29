@@ -25,6 +25,7 @@ inline void glmc_mat2f_transpose(mat2f dest, mat2f src){
 }
 inline void glmc_mat2f_inverse(mat2f dest,mat2f src){
 	mat2f temp;
+	float det;
 	det=glmc_mat2f_determinant(src);
 	//src=glmc_mat3f_transpose(src);
 	temp[0][0]=src[1][1];
@@ -69,7 +70,7 @@ inline void glmc_mat2f_sub(mat2f dest, mat2f src_a, mat2f src_b){
 } 
 inline void glmc_mat2f_sub_dest(mat2f src_dest, mat2f src_b){
 	for(int i=0;i<2;i++)
-		for(2int j=0;j<2;j++)
+		for(int j=0;j<2;j++)
 			src_dest[i][j]-=src_b[i][j];
 } 
 
@@ -116,12 +117,12 @@ inline void glmc_mat2f_subadd(mat2f dest, mat2f src_a, mat2f src_b){
 } 
 
 inline void glmc_mat2f_madd(mat2f dest, mat2f src_a, mat2f src_b){
-	mat3f temp;
+	mat2f temp;
 	glmc_mat2f_mul(temp,src_a,src_b);
 	glmc_mat2f_add_dest(dest,temp);
 } 
 inline void glmc_mat2f_msub(mat2f dest, mat2f src_a, mat2f src_b){
-	mat3f temp;
+	mat2f temp;
 	glmc_mat2f_mul(temp,src_a,src_b);
 	glmc_mat2f_sub_dest(dest,temp);
 } 

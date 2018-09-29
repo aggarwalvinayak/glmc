@@ -9,24 +9,30 @@ inline void glmc_mat4f_copy(mat4f dest, mat4f src){
 }
 
 inline float glmc_mat4f_determinant(mat4f src){
-	mat4f temp1,temp2,temp3,temp4;
+	mat3f temp1,temp2,temp3,temp4;
 	float ans;
 	float det1,det2,det3,det4;
 	for(int i=1;i<4;i++)
-		for(int j=1;j<4;j++)
+		for(int j=1;j<4;j++){
 			temp1[i-1][j-1]=src[i][j];
 			temp4[i-1][j-1]=src[i][j-1];
+		}
 	temp2[0][0]=src[1][0];
 	temp2[1][0]=src[2][0];
 	temp2[2][0]=src[3][0];
 	for(int i=1;i<4;i++)
-		for(int j=2;j<4;j++)
+		for(int j=2;j<4;j++){
 			temp2[i-1][j-1]=src[i][j];
-			temp3[i-1][j-2]=src[i][j-2]
+			temp3[i-1][j-2]=src[i][j-2];
+		}
 	temp3[0][2]=src[1][3];
 	temp3[1][2]=src[2][3];
 	temp3[2][2]=src[3][3];
-	ans=src[0][0]*temp1-src[0][1]*temp2+src[0][2]*temp3-src[0][3]*temp4;
+	det1=glmc_mat3f_determinant(temp1);
+	det2=glmc_mat3f_determinant(temp2);
+	det3=glmc_mat3f_determinant(temp3);
+	det4=glmc_mat3f_determinant(temp4);
+	ans=src[0][0]*det1-src[0][1]*det2+src[0][2]*det3-src[0][3]*det4;
 	return ans;
 }
 inline void glmc_mat4f_transpose(mat4f dest, mat4f src){
