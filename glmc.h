@@ -249,6 +249,16 @@ void glmc_mat2f_mul_vec2f(vec2f dest, mat2f mat, vec2f vec);
 void glmc_mat3f_mul_vec3f(vec3f dest, mat3f mat, vec3f vec);
 void glmc_mat4f_mul_vec4f(vec4f dest, mat4f mat, vec4f vec);
 
+//Scale
+void glmc_mat3f_scale(mat3f dest, float src_a, float src_b);
+void glmc_mat4f_scale(mat4f dest, float src_a, float src_b, float src_c);
+
+//Translation
+void glmc_mat3f_translation(mat3f dest, float src_a, float src_b);
+void glmc_mat4f_translation(mat4f dest, float src_a, float src_b,float src_c);
+
+//Rotation
+void glmc_mat4f_rotation(mat4f dest, float src_a, float src_b, float src_c, float theta);
 
 
 

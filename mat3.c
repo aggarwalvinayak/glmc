@@ -30,7 +30,7 @@ inline void glmc_mat3f_inverse(mat3f dest,mat3f src){
 	float det;
 	det=glmc_mat3f_determinant(src);
 	mat3f m,adj;
-	src=glmc_mat3f_transpose(src);
+	//src=glmc_mat3f_transpose(src);
 	m[0][0]=src[1][1]*src[2][2]-src[1][2]*src[2][1];
 	m[0][1]=src[1][0]*src[2][2]-src[1][2]*src[2][0];
 	m[0][2]=src[1][0]*src[2][1]-src[1][1]*src[2][0];
@@ -142,3 +142,6 @@ inline void glmc_mat3f_msub(mat3f dest, mat3f src_a, mat3f src_b){
 	glmc_mat3f_mul(temp,src_a,src_b);
 	glmc_mat3f_sub_dest(dest,temp);
 }
+
+
+
