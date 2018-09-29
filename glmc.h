@@ -214,4 +214,43 @@ void glmc_mat2f_subadd(mat2f dest, mat2f src_a, mat2f src_b);
 void glmc_mat2f_madd(mat2f dest, mat2f src_a, mat2f src_b); 
 void glmc_mat2f_msub(mat2f dest, mat2f src_a, mat2f src_b); 
 
+//mat 4x4
+
+void glmc_mat4f_copy(mat4f dest, mat4f src);
+
+float glmc_mat4f_determinant(mat4f src);
+void glmc_mat4f_transpose(mat4f dest, mat4f src);
+void glmc_mat4f_inverse(mat4f dest,mat4f src);
+
+int  glmc_mat4f_is_normalized(mat4f src);
+void glmc_mat4f_normlize(mat4f dest, mat4f src);
+
+void glmc_mat4f_add(mat4f dest, mat4f src_a, mat4f src_b);
+void glmc_mat4f_add_dest(mat4f src_dest, mat4f src_b); 
+
+void glmc_mat4f_sub(mat4f dest, mat4f src_a, mat4f src_b); 
+void glmc_mat4f_sub_dest(mat4f src_dest, mat4f src_b); 
+
+void glmc_mat4f_mul(mat4f dest, mat4f src_a, mat4f src_b); 
+void glmc_mat4f_mul_dest(mat4f src_dest, mat4f src_b); 
+void glmc_mat4f_mul_s(mat4f dest, mat4f src_a, float src_b); 
+
+void glmc_mat4f_div(mat4f dest, mat4f src_a, mat4f src_b); 
+void glmc_mat4f_div_dest(mat4f src_dest, mat4f src_b); 
+void glmc_mat4f_div_s(mat4f dest, mat4f src_a, float src_b); 
+void glmc_mat4f_addadd(mat4f dest, mat4f src_a, mat4f src_b); 
+void glmc_mat4f_subadd(mat4f dest, mat4f src_a, mat4f src_b); 
+
+void glmc_mat4f_madd(mat4f dest, mat4f src_a, mat4f src_b); 
+void glmc_mat4f_msub(mat4f dest, mat4f src_a, mat4f src_b); 
+
+//Vec X Matrix
+void glmc_mat2f_mul_vec2f(vec2f dest, mat2f mat, vec2f vec);
+void glmc_mat3f_mul_vec3f(vec3f dest, mat3f mat, vec3f vec);
+void glmc_mat4f_mul_vec4f(vec4f dest, mat4f mat, vec4f vec);
+
+
+
+
+
 #endif /* _GLMC_H */
